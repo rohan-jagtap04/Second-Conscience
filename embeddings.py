@@ -4,10 +4,11 @@ import numpy as np
 import requests
 from bs4 import BeautifulSoup
 from openai.embeddings_utils import get_embedding
+import credentials
 
 
 # openai api key
-openai.api_key = "its a secret" 
+openai.api_key = credentials.API_KEY
 
 #webcraping content from website
 URL = "https://rohjag18.medium.com/convolutional-neural-networks-dont-memorize-learn-instead-a4fbf3604a54"
