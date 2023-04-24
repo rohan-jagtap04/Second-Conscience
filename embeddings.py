@@ -7,7 +7,7 @@ from openai.embeddings_utils import get_embedding
 
 
 # openai api key
-openai.api_key = "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" 
+openai.api_key = "its a secret" 
 
 #webcraping content from website
 URL = "https://rohjag18.medium.com/convolutional-neural-networks-dont-memorize-learn-instead-a4fbf3604a54"
