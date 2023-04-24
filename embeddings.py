@@ -4,10 +4,12 @@ import numpy as np
 import requests
 from bs4 import BeautifulSoup
 from openai.embeddings_utils import get_embedding
+import time
+import credentials
 
 
 # openai api key
-openai.api_key = "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" 
+openai.api_key = credentials.API_KEY
 
 #webcraping content from website
 URL = "https://rohjag18.medium.com/convolutional-neural-networks-dont-memorize-learn-instead-a4fbf3604a54"
@@ -24,7 +26,15 @@ for article in articles:
     tempDf = pd.DataFrame(article, columns=['User_data'])
     user_info_df = pd.concat([user_info_df, tempDf], ignore_index=True)
 
+#training embeddings w delay cuz rate limit
+# def train_embeddings(text):
+#     new_embeddings = get_embedding(text, engine='text-embedding-ada-002')
+#     user_info_df['embeddings'].add(new_embeddings)
+#     time.sleep(0.5)
 
-#getting the vector values for current dataframe
-user_info_df['embeddings'] = user_info_df['User_data'].apply(lambda x: get_embedding(x, engine='text-embedding-ada-002'))
-print(user_info_df)
+# #getting the vector values for current dataframe
+# user_info_df['embeddings'] = user_info_df['User_data'].apply(lambda x: train_embeddings(x))
+
+print(get_embedding("dog", engine='text-embedding-ada-002'))
+
+# print(user_info_df)
