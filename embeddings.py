@@ -4,10 +4,8 @@ import numpy as np
 import requests
 from bs4 import BeautifulSoup
 from openai.embeddings_utils import get_embedding
-import time
 import credentials
-import tiktoken
-import pinecone
+
 
 # openai api key
 openai.api_key = credentials.OPENAI_API_KEY
